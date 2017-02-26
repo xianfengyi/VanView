@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="FilterContainer">
+      <UniqueIdentifier>{17d97f0d-0cb1-43e9-be74-7be9d1e96aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphContainer">
+      <UniqueIdentifier>{6293d509-2ba2-4f56-84ae-0acb76d249ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{fea66f06-1940-44ed-890d-4cc53fb4375e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{a91a3374-3a2c-4dd5-9fc4-aea3b7a634a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="msdx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphContainer.cpp">
+      <Filter>FilterContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderFilterContainer.cpp">
+      <Filter>FilterContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceFilterContainer.cpp">
+      <Filter>FilterContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphControllerFactory.cpp">
+      <Filter>GraphContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="TestGraphController.cpp">
+      <Filter>GraphContainer</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphUtil.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaTypeUtil.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportUtil_Common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportUtil_TestGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="msdx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="msdx_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterContainer.h">
+      <Filter>FilterContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphContainer.h">
+      <Filter>FilterContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphControllerFactory.h">
+      <Filter>GraphContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphController.h">
+      <Filter>GraphContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="TestGraphController.h">
+      <Filter>GraphContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="DxDefinitions.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphUtil.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceDefination.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="LogUtil.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaTypeUtil.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
