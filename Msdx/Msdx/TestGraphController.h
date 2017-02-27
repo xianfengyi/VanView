@@ -13,8 +13,7 @@
 namespace msdx
 {
 
-class TestGraphController :
-    public ITestGraphController
+class TestGraphController :public ITestGraphController
 {
 public:
     TestGraphController(void);

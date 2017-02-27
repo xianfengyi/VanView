@@ -26,35 +26,32 @@ extern "C"
 	/* 全局API函数                                                          */
 	/************************************************************************/
 
-	int MSDXAPI testRoute();
+	int MSDXAPI  testRoute();
 
-	// Formal Interface
-
-	int MSDXAPI msdx_initial(); 	
+	int MSDXAPI  msdx_initial(); 	
 	void MSDXAPI msdx_uninitial();
 	
 	void MSDXAPI msdx_set_default_config();
+
 	/*config*/
 	void MSDXAPI msdx_config_set_video_device(const char * deviceid,const char *crossbar,const char* cb_input);   //junLin.chen 2010-07-20
 	void MSDXAPI msdx_config_set_audio_format(int SampleRate,int Channels,int BitsPerSample);
 
-	///设置音频设备...
+	//设置音频设备...
 	void MSDXAPI msdx_config_set_audio_device(const char* inputDevice , const char* outputDevice );
 
 	//是否启用自适应码率调整
 	void MSDXAPI msdx_send_enable_adaptive_coderate(bool enable);
 
 
-	/************************************************************************/
+	//------------------------------------------------------------------------
 	/* 本地音视频测试                                                         */
-	/************************************************************************/
-
+	//--------------------------------------------------------------------------
 	enum AudioTestType
 	{
 		MSDX_LOCAL_ATYPE_DEVICE,
 		MSDX_LOCAL_ATYPE_FILE
 	};
-
 	int MSDXAPI msdx_create_audio_test_graph(const AudioTestType type, const char * inputSrc, const char * outputDevice);
 	void MSDXAPI msdx_destroy_audio_test_graph();
 

@@ -6,11 +6,12 @@ using std::string;
 #include "vanview.h"
 #include "DeviceManager/DeviceManager.h"
 #include "msdx/config.h"
+#include <msdx/ExportUtil.h>
 #include "VanViewComman.h"
 #include "TestMediaComman.h"
 
 #include "TestMedia.h"
-#include <msdx/ExportUtil.h>
+#include "VanPlayer.h"
 #include <Windows.h>
 
 VanView::VanView(QWidget *parent)
@@ -20,8 +21,12 @@ VanView::VanView(QWidget *parent)
 	ReadDevices();
 
 	testmedia_instance = NULL;
+    player=nullptr;
 
 	isVideoPreview = false;
+
+    //-------------------------------------------------------------------
+    //音视频测试
 
 	//Video
 	connect(ui.webcamDeviceTestComboBox, SIGNAL(currentIndexChanged(const QString &)),
@@ -35,13 +40,18 @@ VanView::VanView(QWidget *parent)
 	connect(ui.audioOutputTestStartButton, SIGNAL(clicked()), this, SLOT(startAudioOutputTest()));
 	connect(ui.audioInputTestStopButton, SIGNAL(clicked()), this, SLOT(stopAudioInputTest()));
 	connect(ui.audioOutputTestStopButton, SIGNAL(clicked()), this, SLOT(stopAudioOutputTest()));
+
+    //-------------------------------------------------------------------
+    //视频播放
+    connect(ui.playButton,SIGNAL(clicked()),this,SLOT(playVideoFile()));
+
 }
 
 VanView::~VanView()
 {
 	SAFE_DELETE(testmedia_instance);
+    SAFE_DELETE(player);
 }
-
 
 void VanView::ReadDevices()
 {
@@ -58,6 +68,7 @@ void VanView::ReadDevices()
 			ui.webcamDeviceTestComboBox->addItem(QString::fromStdString(it->friendlyName), data);
 		}
 	}
+
 	//当前设备初始化分辨率
 	vector<std::string> videoSizeList;
 	DeviceManager::GetInstatnce()->GetVideoDeviceMediaType(ui.webcamDeviceTestComboBox->currentText().toLocal8Bit().constData(), &videoSizeList);
@@ -98,8 +109,7 @@ void VanView::preViewWebcamChangedSlot(const QString& webcamName)
 	TransformStringVectorToQStringList(&videoSizeList, &itemList);
 	ui.videosizeTestcomboBox->addItems(itemList);
 
-	if (webcamName.contains("webcam", Qt::CaseInsensitive)
-		|| webcamName.contains("e2eSoft", Qt::CaseInsensitive))
+	if (webcamName.contains("webcam", Qt::CaseInsensitive)|| webcamName.contains("e2eSoft", Qt::CaseInsensitive))
 	{
 		//如果是网络摄像头则清空采集卡配置
 		ui.crossbarlistTestcomboBox->clear();
@@ -129,11 +139,8 @@ void VanView::preViewCrossbarChangedSlot(const QString& crossbar)
 {
 	ui.crossbarclassTestcomboBox->clear();
 	int index = ui.crossbarlistTestcomboBox->currentIndex();
-	if (index <= 0)
-	{
-		//0为不使用
-		return;
-	}
+	if (index <= 0){return;}  //0为不使用
+
 	vector<std::string> crossbarType;
 	QString crossbar_displayname = ui.crossbarlistTestcomboBox->itemData(index).toString();
 	DeviceManager::GetInstatnce()->GetCrossbarInputType(crossbar_displayname.toLocal8Bit().constData(), &crossbarType);
@@ -275,4 +282,15 @@ void VanView::stopAudioOutputTest()
 	ui.audioOutputTestStopButton->setEnabled(false);
 
 	testmedia_instance->Destroy();
+}
+
+
+void VanView::playVideoFile()
+{
+    player=new VanPlayer();
+    int frame_hwnd=ui.previewFrame->winId();
+    player->SetHWND((HWND)frame_hwnd);
+
+    string filePath="E:\\Videos\\test.mp4";
+    player->Play(filePath);
 }

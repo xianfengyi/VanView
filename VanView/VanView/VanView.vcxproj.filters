@@ -42,6 +42,9 @@
     <Filter Include="TestMedia">
       <UniqueIdentifier>{7fec918d-cf14-4ff7-953b-193b17602c65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{189d447c-9de6-498b-a9f5-a1ff8406cced}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +77,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_TestMedia.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="VanPlayer.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="vanview.h">
@@ -101,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="TestMediaComman.h">
       <Filter>TestMedia</Filter>
+    </ClInclude>
+    <ClInclude Include="VanPlayer.h">
+      <Filter>Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

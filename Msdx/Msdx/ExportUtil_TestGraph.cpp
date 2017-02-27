@@ -62,7 +62,7 @@ int MSDXAPI msdx_create_audio_test_graph( const AudioTestType type, const char *
     //input
     if (type == MSDX_LOCAL_ATYPE_DEVICE)
     {
-        //将声音设备FriendlyName转为DisplayName，这都是历史问题了
+        //将声音设备FriendlyName转为DisplayName
         if (GetAudioSourceDisplayNameFromFriendlyName(
             inputSrc, test_graph_param.audio.input_device) < 0) {
             return -1;
@@ -86,8 +86,7 @@ int MSDXAPI msdx_create_audio_test_graph( const AudioTestType type, const char *
     }
 
     //build
-    test_graph_controller = 
-        msdx::GraphControllerFactory::GetInstance().CreateTestGraphController();
+    test_graph_controller = msdx::GraphControllerFactory::GetInstance().CreateTestGraphController();
     if(test_graph_controller == nullptr) {
         LOG_ERROR("Create graph controller failed.");
         return -1;
@@ -132,7 +131,7 @@ int MSDXAPI msdx_create_video_test_graph( const char * video_device, const char*
     test_graph_param.video.crossbar = crossbar ? crossbar : "";
     test_graph_param.video.device = video_device ? video_device : "";
 
-    //上层很乱，这里传的是摄像头DisplayName，为了与发送graph一致，要截取出DevicePath
+    //传的是摄像头DisplayName，为了与发送graph一致，要截取出DevicePath
     test_graph_param.video.device = 
         test_graph_param.video.device.substr(test_graph_param.video.device.find_first_of('\\'));
     

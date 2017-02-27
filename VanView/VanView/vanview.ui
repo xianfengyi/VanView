@@ -63,7 +63,7 @@
     <widget class="QPushButton" name="videoPreViewButton">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>50</x>
        <y>490</y>
        <width>111</width>
        <height>23</height>
@@ -77,6 +77,19 @@
      </property>
      <property name="text">
       <string>预览</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="playButton">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>490</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>播放</string>
      </property>
     </widget>
    </widget>

@@ -5,6 +5,7 @@
 #include "ui_vanview.h"
 
 class TestMedia;
+class VanPlayer;
 class VanView : public QMainWindow
 {
 	Q_OBJECT
@@ -30,11 +31,17 @@ Q_SIGNALS:
 	void startAudioOutputTest();
 	void stopAudioOutputTest();
 
+
+    void playVideoFile();
+
 private:
 	Ui::VanViewClass ui;
 	TestMedia *testmedia_instance;
-
 	bool isVideoPreview;
+
+
+    VanPlayer* player;
+    
 	
 };
 
